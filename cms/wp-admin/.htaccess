@@ -1,0 +1,10 @@
+
+		SetEnvIf Request_URI ^/var/www/html/wp/cms/wp-admin/admin-ajax.php noauth=1
+		Authtype Basic
+		AuthName "Restricted Access"
+		AuthUserFile /var/www/html/wp/cms/.htpasswd
+		Require valid-user
+		Order Deny,Allow
+		Deny from all
+		Allow from env=noauth
+		Satisfy any
